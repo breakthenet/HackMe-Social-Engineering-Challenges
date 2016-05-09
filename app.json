@@ -1,0 +1,18 @@
+{
+  "addons": [
+    "papertrail",
+    "cleardb"
+  ],
+  "success_url": "/login.php",
+  "scripts": {
+    "postdeploy": "php setup_mysql.php"
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-php"
+    },
+    {
+      "url": "https://github.com/stomita/heroku-buildpack-phantomjs"
+    }
+  ]
+}
