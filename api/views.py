@@ -2,8 +2,8 @@ from django.http import HttpResponse
 import json
 from django.http import HttpResponseRedirect
 import os, sys
-import requests
 import sendgrid
+from bs4 import BeautifulSoup, SoupStrainer
 
 def catch_email(request):
     """
@@ -67,19 +67,10 @@ def catch_email(request):
                 
         elif to_address == "scotty@"+os.environ.get('MAILGUN_DOMAIN', ''):
             if from_address == "kylo@"+os.environ.get('MAILGUN_DOMAIN', ''):
-                #scan email for links
-                #if link found in email (only count first...)
-                #launch phantomjs opening link (worker dyno???)
-                #phantomjs should check if django login prompts, if so input password and hit submit
-                #after hitting submit, close after 30 seconds
-                pass
-            
-                #TO TEST THE ABOVE
-                #make new view/url
-                #this launches phantomjs and logs into admin panel of our app
-                #use it to test worker dyno config
-                
-                
+                for link in BeautifulSoup(request.POST['body-html'][0], parse_only=SoupStrainer('a')):
+                    if link.has_attr('href'):
+                        os.system('phantomjs fake_scotty_browser.js --url '+link['href'])
+                        #launch phantomjs opening link (worker dyno???)
     except:
 
         exc_type, exc_value, exc_traceback = sys.exc_info()
@@ -92,6 +83,8 @@ def catch_email(request):
     }), content_type='application/json', status=200)
 
 def test_phantomjs(request):
+    link = "http://hm-spoof.herokuapp.com/admin/"
+    os.system('phantomjs fake_scotty_browser.js --url '+link)
     return HttpResponse(json.dumps({
         "status": "success"
     }), content_type='application/json', status=200)
