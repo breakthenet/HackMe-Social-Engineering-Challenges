@@ -12,9 +12,9 @@ def catch_email(request):
     try:
         
         
-        from_address = request.POST['From'][0].split('<')[1].split('>')[0]
         
         print "request.POST", request.POST
+        from_address = request.POST['From'][0].split('<')[1].split('>')[0]
         
         print "request.POST['to'].split('@')[0]", request.POST['To'].split("@")[0]
         print "from_address", from_address
