@@ -21,6 +21,10 @@ def catch_email(request):
         to_address = request.POST['To']
         if type(to_address) is list:
             to_address = to_address[0]
+            
+        reply_to_address = request.POST.get('Reply-To', '')
+        if type(reply_to_address) is list:
+            reply_to_address = reply_to_address[0]
 
         try:
             from_address = from_address.split('<')[1].split('>')[0]
@@ -32,8 +36,14 @@ def catch_email(request):
         except:
             pass
 
+        try:
+            reply_to_address = reply_to_address.split('<')[1].split('>')[0]
+        except:
+            pass
+
         print "to_address", to_address
         print "from_address", from_address
+        print "reply_to_address", reply_to_address
         
         if to_address == "bobdole@"+os.environ.get('MAILGUN_DOMAIN', ''):
             if from_address == "tedjones@"+os.environ.get('MAILGUN_DOMAIN', ''):
@@ -42,7 +52,7 @@ def catch_email(request):
                 sg = sendgrid.SendGridClient(os.environ.get('SENDGRID_USERNAME', ''), os.environ.get('SENDGRID_PASSWORD', ''))
                 
                 message = sendgrid.Mail()
-                message.add_to(from_address)
+                message.add_to(reply_to_address)
                 #message.set_replyto("seanybob@gmail.com")
                 message.set_subject("Re: "+request.POST['subject'])
                 message.set_html(plaintext)
