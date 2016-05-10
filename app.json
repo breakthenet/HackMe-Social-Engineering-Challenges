@@ -13,16 +13,14 @@
       "url": "https://github.com/stomita/heroku-buildpack-phantomjs"
     }
   ],
-  {
-    "formation": {
-      "web": {
-        "quantity": 1,
-        "size": "free"
-      },
-      "worker": {
-        "quantity": 1,
-        "size": "free"
-      }
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    },
+    "worker": {
+      "quantity": 1,
+      "size": "free"
     }
   }
 }
