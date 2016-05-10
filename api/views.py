@@ -3,6 +3,7 @@ import json
 from django.http import HttpResponseRedirect
 import os, sys
 import requests
+import sendgrid
 
 def catch_email(request):
     """
@@ -37,24 +38,19 @@ def catch_email(request):
         if to_address == "bobdole@"+os.environ.get('MAILGUN_DOMAIN', ''):
             if from_address == "tedjones@"+os.environ.get('MAILGUN_DOMAIN', ''):
                 plaintext = 'Hey! You may not have lost the password, as I just recently updated it so that could be why you are having trouble logging in. The new password is "eggroll". -Bob Dole'
-            
-                email_data = {
-                    "from": "Bob Dole <bobdole@"+os.environ.get('MAILGUN_DOMAIN', '')+">",
-                    "to": [from_address],
-                    "subject": request.POST['subject'],
-                    "html": plaintext,
-                    "text": plaintext
-                }
-                print "email_data", email_data
-                response = requests.post(
-                    "https://api.mailgun.net/v3/{domain}/messages".format(domain=os.environ.get('MAILGUN_DOMAIN', '')),
-                    auth=("api", os.environ.get('MAILGUN_API_KEY', '')),
-                    data=email_data,
-                    verify=False
-                )
-                print "[MAILGUN EMAIL API CALL=", response.status_code, response.text
-                if response.status_code == 400:
-                    print response.json()['message']
+                
+                sg = sendgrid.SendGridClient(os.environ.get('SENDGRID_USERNAME', ''), os.environ.get('SENDGRID_PASSWORD', ''))
+                
+                message = sendgrid.Mail()
+                message.add_to(from_address)
+                #message.set_replyto("seanybob@gmail.com")
+                message.set_subject(request.POST['subject'])
+                message.set_html(plaintext)
+                message.set_text(plaintext)
+                message.set_from("Bob Dole <bobdole@"+os.environ.get('MAILGUN_DOMAIN', '')+">")
+                status, msg = sg.send(message)
+                print status
+                print msg
                 
     except:
 
