@@ -7,7 +7,7 @@
   ],
   "success_url": "/",
   "scripts": {
-    "postdeploy": "python manage.py migrate && python post_deploy.py"
+    "postdeploy": "python manage.py migrate"
   },
   "buildpacks": [
     {
