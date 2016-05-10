@@ -14,10 +14,10 @@ def catch_email(request):
         
         print "request.POST", request.POST
         
-        print "request.POST['to'].split('@')[0]", request.POST['to'].split("@")[0]
+        print "request.POST['to'].split('@')[0]", request.POST['To'].split("@")[0]
         print "request.POST['sender'][0]", request.POST['sender'][0]
         
-        if request.POST['to'].split("@")[0] == "bobdole":
+        if request.POST['To'].split("@")[0] == "bobdole":
             if request.POST['sender'][0] == "joe@"+os.environ.get('MAILGUN_DOMAIN', ''):
                 plaintext = 'Hey! You may not have lost the password, as I just recently updated it so that could be why you are having trouble logging in. The new password is "eggroll". -Bob Dole'
             
@@ -44,7 +44,6 @@ def catch_email(request):
         exc_type, exc_value, exc_traceback = sys.exc_info()
         print "exc_type", exc_type
         print "exc_value", exc_value
-        print "exc_traceback", exc_traceback
         raise
     
     return HttpResponse(json.dumps({
