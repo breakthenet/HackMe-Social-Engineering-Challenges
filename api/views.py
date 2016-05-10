@@ -51,7 +51,7 @@ def catch_email(request):
         
         if to_address == "bobdole@"+os.environ.get('MAILGUN_DOMAIN', ''):
             if from_address == "tedjones@"+os.environ.get('MAILGUN_DOMAIN', ''):
-                plaintext = 'Hey! You may not have lost the password, as I just recently updated it so that could be why you are having trouble logging in. The new password is "eggroll". -Bob Dole'
+                plaintext = 'Hey! You may not have lost the password, as I just recently updated it so that could be why you are having trouble logging in. The new password is "eggroll". \n-Bob Dole\nCEO, Veritas Inc.'
                 
                 sg = sendgrid.SendGridClient(os.environ.get('SENDGRID_USERNAME', ''), os.environ.get('SENDGRID_PASSWORD', ''))
                 
