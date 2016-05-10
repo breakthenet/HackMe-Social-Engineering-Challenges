@@ -1,4 +1,7 @@
 {
+  "env": {
+    "IS_HEROKU_SERVER": "1"
+  },
   "addons": [
     "papertrail",
     "mailgun",
