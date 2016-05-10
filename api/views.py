@@ -41,9 +41,9 @@ def catch_email(request):
 
 def get_config(request):
     return HttpResponse(json.dumps({
-        "challenge_1_email": "bobdole@"+os.environ.get('MAILGUN_DOMAIN', '')
+        "challenge_1_email_to": "bobdole@"+os.environ.get('MAILGUN_DOMAIN', ''),
+        "challenge_1_email_from": "tedjones@"+os.environ.get('MAILGUN_DOMAIN', '')
     }), content_type='application/json', status=200)
-
 
     
 def load_frontend(request):
