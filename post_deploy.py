@@ -1,8 +1,6 @@
 import os, sys
 import base64
-sys.path.append("hackathon/")
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
-
+os.environ['DJANGO_SETTINGS_MODULE'] = 'hackathon.settings'
 import django
 django.setup()
 
