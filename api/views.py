@@ -14,10 +14,11 @@ def catch_email(request):
         
         from_address = request.POST['From'][0].split('<')[1].split('>')[0]
         
+        print "request.POST", request.POST
+        
         print "request.POST['to'].split('@')[0]", request.POST['To'].split("@")[0]
         print "from_address", from_address
         
-        print "request.POST", request.POST
         
         if request.POST['To'].split("@")[0] == "bobdole":
             if from_address == "tedjones@"+os.environ.get('MAILGUN_DOMAIN', ''):
