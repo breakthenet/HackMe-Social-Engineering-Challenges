@@ -1,13 +1,15 @@
 {
-  "env": {
-    "IS_HEROKU_SERVER": "1"
-  },
   "addons": [
     "papertrail",
-    "heroku-postgresql:hobby-dev"
+    "mailgun"
   ],
   "success_url": "/",
   "scripts": {
     "postdeploy": "python manage.py migrate"
-  }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/stomita/heroku-buildpack-phantomjs"
+    }
+  ]
 }

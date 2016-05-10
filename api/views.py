@@ -1,13 +1,25 @@
 from django.http import HttpResponse
-import datetime
 import json
 from django.http import HttpResponseRedirect
 
-def email_challenge_1(request):
+def catch_email(request):
+    """
+        catch_all()
+        forward("http://hm-spoof.herokuapp.com/catch_email")	
+    """
+    
+    mailgun_domain = os.environ.get('MAILGUN_DOMAIN', '')
+    
+    print request.POST, str(request.POST)
+    print request.GET, str(request.GET)
+    
+    to_address = request.POST['recipient']
+    to_prefix = hash_email.split("@")[0]  # hash@email.com
+    request.POST['stripped-text']
     
     return HttpResponse(json.dumps({
         "status": "success"
-    }, default=json_custom_parser), content_type='application/json', status=200)
+    }), content_type='application/json', status=200)
 
     
 def load_frontend(request):
