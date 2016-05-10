@@ -1,6 +1,6 @@
 # Social Engineering Challenges
 
-These challenges require a user to successfully spoof emails, clone website login forms, spoof sms, spoof caller id to get into voicemail, and the like.
+These challenges require a user to successfully spoof emails, clone website login forms, spoof sms, spoof caller id to get into voicemail, and the like. It is recommended to have Kali installed in a VM to have all the tools available you need to complete them.
 
 Deploy to your own Heroku instance with this button below. Once deployed, finish the configuration by opening the app in your browser.
 
