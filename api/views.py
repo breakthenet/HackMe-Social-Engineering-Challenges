@@ -44,7 +44,7 @@ def catch_email(request):
                 message = sendgrid.Mail()
                 message.add_to(from_address)
                 #message.set_replyto("seanybob@gmail.com")
-                message.set_subject(request.POST['subject'])
+                message.set_subject("Re: "+request.POST['subject'])
                 message.set_html(plaintext)
                 message.set_text(plaintext)
                 message.set_from("Bob Dole <bobdole@"+os.environ.get('MAILGUN_DOMAIN', '')+">")
