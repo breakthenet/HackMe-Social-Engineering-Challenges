@@ -7,9 +7,12 @@
   ],
   "success_url": "/",
   "scripts": {
-    "postdeploy": "sh -c 'python manage.py migrate --noinput'"
+    "postdeploy": "python manage.py migrate"
   },
   "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-python"
+    },
     {
       "url": "https://github.com/stomita/heroku-buildpack-phantomjs"
     }
