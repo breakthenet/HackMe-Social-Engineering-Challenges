@@ -1,1 +1,23 @@
-hullo
+Challenge 1 email: <span id='challenge_1_email'></span>
+<br><br>
+Challenge 2 email: x
+<br><br>
+Challenge 3 email: x
+<br><br>
+Challenge 1 SMS: x
+<br><br>
+Challenge 1 Phone: x
+
+<script>
+jQuery.ajax({
+    type: "POST",
+    url: "/get_config",
+    data: {},
+    success: function (data) {
+        jQuery('#challenge_1_email').html(data.challenge_1_email);
+    },
+    error: function (e) {
+        console.log(e);
+    }
+});
+</script>
