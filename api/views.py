@@ -12,18 +12,20 @@ def catch_email(request):
     try:
         
         
+        from_address = request.POST['From'][0].split('<')[1].split('>')[0]
+        
         print "request.POST['to'].split('@')[0]", request.POST['To'].split("@")[0]
-        print "request.POST['sender'][0]", request.POST['sender']
+        print "from_address", from_address
         
         print "request.POST", request.POST
         
         if request.POST['To'].split("@")[0] == "bobdole":
-            if request.POST['sender'][0] == "tedjones@"+os.environ.get('MAILGUN_DOMAIN', ''):
+            if from_address == "tedjones@"+os.environ.get('MAILGUN_DOMAIN', ''):
                 plaintext = 'Hey! You may not have lost the password, as I just recently updated it so that could be why you are having trouble logging in. The new password is "eggroll". -Bob Dole'
             
                 email_data = {
                     "from": "Bob Dole <bobdole@"+os.environ.get('MAILGUN_DOMAIN', '')+">",
-                    "to": [request.POST['sender'][0]],
+                    "to": [from_address],
                     "subject": request.POST['subject'],
                     "html": plaintext,
                     "text": plaintext
