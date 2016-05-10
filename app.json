@@ -7,7 +7,7 @@
   ],
   "success_url": "/",
   "scripts": {
-    "postdeploy": "sh -c 'python manage.py migrate --noinput; python post_deploy.py'"
+    "postdeploy": "sh -c 'python manage.py migrate --noinput'"
   },
   "buildpacks": [
     {
