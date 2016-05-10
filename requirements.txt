@@ -7,3 +7,4 @@ static==0.4
 wsgiref==0.1.2
 django-cors-headers==1.1.0
 whitenoise==1.0.5
+requests==2.9.1
