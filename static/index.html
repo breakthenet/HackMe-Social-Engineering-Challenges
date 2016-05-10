@@ -1,14 +1,56 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<h1>Challenge 1</h1>
-Send email to CEO Bob Dole (<span id='challenge_1_email_to'></span>). Spoof it to appear from his CFO Ted Jones (<span id='challenge_1_email_from'></span>).
+
+<h1>Post Heroku Deploy: Installation Instructions</h1>
+
+<h2>Setup Mailgun</h2>
+
+Click Mailgun<br>
+<img src='http://teachthe.net/topclipbox/click_mailgun.png'><br>
+<br>
+Click Routes<br>
+<img src='http://teachthe.net/topclipbox/2016-05-10_13-46-35RLF30T.png'><br>
+<br>
+Click Create New Route<br>
+<img src='http://teachthe.net/topclipbox/2016-05-10_13-48-06KPA4N0.png'><br>
+<br>
+New Route Details:<br>
+<img src='http://teachthe.net/topclipbox/2016-05-10_13-47-31W2U5IV.png'><br>
+<ul>
+<li>Filter Expression = catch_all()</li>
+<li>Actions = forward("http://hm-spoof.herokuapp.com/catch_email")</li>
+<li>
+    <ul>
+    <li>Replace hm-spoof.herokuapp.com with your heroku app's url.</li>
+    </ul>
+</li>
+<li>Hit save, and you're done!</li>
+</ul>
+
+<h2>Retrieve SMTP credentials (if you need them)</h2>
+
+In your Heroku app's management page, go to Settings, then Reveal Config Variables.
+<img src='http://teachthe.net/topclipbox/2016-05-10_13-51-49865N8O.png'>
+
+Retrieve the values for these two fields (SENDGRID_PASSWORD and SENDGRID_USERNAME):
+<img src='http://teachthe.net/topclipbox/2016-05-10_13-53-04100CGX.png'>
+
+Your SMTP credentials are these:
+server: smtp.sendgrid.net:587
+username: [SENDGRID_USERNAME from above]
+password: [SENDGRID_PASSWORD from above]
+
+<h1>Challenge 1 Info</h1>
+CEO Bob Dole: <span id='challenge_1_email_to'></span><br>
+CFO Ted Jones: <span id='challenge_1_email_from'></span>
 <br><br>
 Challenge 2 email: x
 <br><br>
 Challenge 3 email: x
 <br><br>
-Challenge 1 SMS: x
+Challenge 4 SMS: x
 <br><br>
-Challenge 1 Phone: x
+Challenge 5 Phone: x
+
 
 <script>
 jQuery.ajax({
@@ -24,8 +66,3 @@ jQuery.ajax({
     }
 });
 </script>
-
-SENDGRID SMTP
-sendEmail -t bobdole@app53ccb967cacc475c8cb15d81dd22c0ce.mailgun.org -f tedjones@app53ccb967cacc475c8cb15d81dd22c0ce.mailgun.org -s smtp.sendgrid.net:587 -xu app50583659@heroku.com -xp jsnip9 -m "Hey I lost the password for the webserver, can you send it to me? -Ted" -o reply-to=seanybob@gmail.com
-
-
