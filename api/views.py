@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 import json
 from django.http import HttpResponseRedirect
+import os
 
 def catch_email(request):
     """
