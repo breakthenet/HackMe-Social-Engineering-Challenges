@@ -10,21 +10,27 @@ def catch_email(request):
         forward("http://hm-spoof.herokuapp.com/catch_email")	
     """
     try:
-        
-        
-        
+
         print "request.POST", request.POST
-        
+
+        from_address = request.POST['From']
+        if type(from_address) is list:
+            from_address = from_address[0]
+
+        to_address = request.POST['To']
+        if type(to_address) is list:
+            to_address = to_address[0]
+
         try:
-            from_address = request.POST['From'][0].split('<')[1].split('>')[0]
+            from_address = from_address.split('<')[1].split('>')[0]
         except:
-            from_address = request.POST['From'][0]
-            
+            pass
+
         try:
-            to_address = request.POST['To'][0].split('<')[1].split('>')[0]
+            to_address = to_address.split('<')[1].split('>')[0]
         except:
-            to_address = request.POST['To'][0]
-        
+            pass
+
         print "to_address", to_address
         print "from_address", from_address
         
