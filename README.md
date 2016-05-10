@@ -1,8 +1,8 @@
-# XSS/CSRF Challenges
+# Social Engineering Challenges
 
-These challenges are set in a Text-Based 'MM'ORPG Game based off Mccode Lite Game Engine (GPL)
+These challenges require a user to successfully spoof emails, clone website login forms, spoof sms, spoof caller id to get into voicemail, and the like.
 
-Deploy to your own Heroku instance with this button below, then complete the challenges!
+Deploy to your own Heroku instance with this button below. Once deployed, finish the configuration by opening the app in your browser.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
@@ -12,15 +12,7 @@ Deploy to your own Heroku instance with this button below, then complete the cha
 Challenges:
 ----------------------
 
-[Challenge 1](https://github.com/breakthenet/xss-exercises/blob/master/challenges/challenge_1.md): Basic CSRF
-
-[Challenge 2](https://github.com/breakthenet/xss-exercises/blob/master/challenges/challenge_2.md): XSS - thinking outside the box
-
-[Challenge 3](https://github.com/breakthenet/xss-exercises/blob/master/challenges/challenge_3.md): CSRF - trick an admin into upgrading your account to admin status.
-
-[Challenge 4](https://github.com/breakthenet/xss-exercises/blob/master/challenges/challenge_4.md): XSS via BBCode parser, steal admin's cookies
-
-[Challenge 5](https://github.com/breakthenet/xss-exercises/blob/master/challenges/challenge_5.md): XSS - creating a xss javascript worm
+[Challenge 1](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/challenges/challenge_1.md): Spoof an email with your own custom reply-to.
 
 ----------------------
 
