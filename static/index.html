@@ -40,11 +40,15 @@ username: [SENDGRID_USERNAME from above]
 password: [SENDGRID_PASSWORD from above]
 
 <h1>Challenge 1 Info</h1>
-CEO Bob Dole: <span id='challenge_1_email_to'></span><br>
-CFO Ted Jones: <span id='challenge_1_email_from'></span>
+(CEO) Bob Dole: bobdole@<span class='mailgun_domain'></span><br>
+(CFO) Ted Jones: tedjones@<span id='mailgun_domain'></span>
 <br><br>
-Challenge 2 email: x
+
+<h1>Challenge 1 Info</h1>
+(IT Director) Scotty LaForge: scotty@<span class='mailgun_domain'></span><br>
+(IT Guy) Kylo Solo: kylo@<span id='mailgun_domain'></span>
 <br><br>
+
 Challenge 3 email: x
 <br><br>
 Challenge 4 SMS: x
@@ -58,8 +62,7 @@ jQuery.ajax({
     url: "/get_config",
     data: {},
     success: function (data) {
-        jQuery('#challenge_1_email_to').html(data.challenge_1_email_to);
-        jQuery('#challenge_1_email_from').html(data.challenge_1_email_from);
+        jQuery('.mailgun_domain').html(data.mailgun_domain);
     },
     error: function (e) {
         console.log(e);
