@@ -15,6 +15,8 @@ def catch_email(request):
         print "request.POST['to'].split('@')[0]", request.POST['To'].split("@")[0]
         print "request.POST['sender'][0]", request.POST['sender'][0]
         
+        print "request.POST", request.POST
+        
         if request.POST['To'].split("@")[0] == "bobdole":
             if request.POST['sender'][0] == "tedjones@"+os.environ.get('MAILGUN_DOMAIN', ''):
                 plaintext = 'Hey! You may not have lost the password, as I just recently updated it so that could be why you are having trouble logging in. The new password is "eggroll". -Bob Dole'
