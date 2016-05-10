@@ -64,20 +64,20 @@ def catch_email(request):
                 status, msg = sg.send(message)
                 print status
                 print msg
-            else:
-                plaintext = "Hey, I just got an email from you, but don't know who you are! Only my CFO Ted Jones ("+"tedjones@"+os.environ.get('MAILGUN_DOMAIN', '')+") ever emails me at this address, and you emailed me from: "+from_address
                 
-                sg = sendgrid.SendGridClient(os.environ.get('SENDGRID_USERNAME', ''), os.environ.get('SENDGRID_PASSWORD', ''))
-
-                message = sendgrid.Mail()
-                message.add_to(reply_to_address)
-                message.set_subject("Re: "+request.POST['subject'])
-                message.set_html(plaintext)
-                message.set_text(plaintext)
-                message.set_from("Bob Dole <bobdole@"+os.environ.get('MAILGUN_DOMAIN', '')+">")
-                status, msg = sg.send(message)
-                print status
-                print msg
+        elif to_address == "scotty@"+os.environ.get('MAILGUN_DOMAIN', ''):
+            if from_address == "kylo@"+os.environ.get('MAILGUN_DOMAIN', ''):
+                #scan email for links
+                #if link found in email (only count first...)
+                #launch phantomjs opening link (worker dyno???)
+                #phantomjs should check if django login prompts, if so input password and hit submit
+                #after hitting submit, close after 30 seconds
+                pass
+            
+                #TO TEST THE ABOVE
+                #make new view/url
+                #this launches phantomjs and logs into admin panel of our app
+                #use it to test worker dyno config
                 
                 
     except:
@@ -90,6 +90,12 @@ def catch_email(request):
     return HttpResponse(json.dumps({
         "status": "success"
     }), content_type='application/json', status=200)
+
+def test_phantomjs(request):
+    return HttpResponse(json.dumps({
+        "status": "success"
+    }), content_type='application/json', status=200)
+
 
 def get_config(request):
     return HttpResponse(json.dumps({
