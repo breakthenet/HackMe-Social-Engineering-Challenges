@@ -14,6 +14,8 @@ Challenges:
 
 [Challenge 1](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/challenges/challenge_1.md): Spoof an email with your own custom reply-to.
 
+[Challenge 2](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/challenges/challenge_2.md): Spoof an email with linked phishing site, harvest credentials.
+
 ----------------------
 
 Note that useful information for testing and debugging will be logged to the Papertrail app in your heroku instance. Open papertrail to view those streaming logs.

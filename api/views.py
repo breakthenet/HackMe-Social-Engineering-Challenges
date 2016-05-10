@@ -97,6 +97,15 @@ def get_config(request):
         "challenge_1_email_from": "tedjones@"+os.environ.get('MAILGUN_DOMAIN', '')
     }), content_type='application/json', status=200)
 
+def catch_sms(request):
+    return HttpResponse(json.dumps({
+        "status": "success"
+    }), content_type='application/json', status=200)
+
+def catch_phone_call(request):
+    return HttpResponse(json.dumps({
+        "status": "success"
+    }), content_type='application/json', status=200)
     
 def load_frontend(request):
     return HttpResponseRedirect("/static/index.html")
