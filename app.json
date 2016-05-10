@@ -1,7 +1,8 @@
 {
   "addons": [
     "papertrail",
-    "mailgun"
+    "mailgun",
+    "sendgrid"
   ],
   "success_url": "/",
   "scripts": {

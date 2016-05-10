@@ -13,7 +13,7 @@ def catch_email(request):
         
         
         print "request.POST['to'].split('@')[0]", request.POST['To'].split("@")[0]
-        print "request.POST['sender'][0]", request.POST['sender'][0]
+        print "request.POST['sender'][0]", request.POST['sender']
         
         print "request.POST", request.POST
         
