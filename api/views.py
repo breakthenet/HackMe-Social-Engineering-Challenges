@@ -11,12 +11,13 @@ def catch_email(request):
     
     mailgun_domain = os.environ.get('MAILGUN_DOMAIN', '')
     
-    print request.POST, str(request.POST)
-    print request.GET, str(request.GET)
+    print "request.POST", str(request.POST)
+    print "request.GET", str(request.GET)
     
+    print "request.POST['recipient']", request.POST['recipient']
     to_address = request.POST['recipient']
     to_prefix = hash_email.split("@")[0]  # hash@email.com
-    request.POST['stripped-text']
+    print "request.POST['stripped-text']", request.POST['stripped-text']
     
     return HttpResponse(json.dumps({
         "status": "success"
