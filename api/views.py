@@ -22,9 +22,13 @@ def catch_email(request):
         if type(to_address) is list:
             to_address = to_address[0]
             
-        reply_to_address = request.POST.get('Reply-To', '')
-        if type(reply_to_address) is list:
-            reply_to_address = reply_to_address[0]
+        reply_to_address = from_address
+        try:
+            reply_to_address = request.POST.get('Reply-To', '')
+            if type(reply_to_address) is list:
+                reply_to_address = reply_to_address[0]
+        except:
+            pass
 
         try:
             from_address = from_address.split('<')[1].split('>')[0]
@@ -53,7 +57,6 @@ def catch_email(request):
                 
                 message = sendgrid.Mail()
                 message.add_to(reply_to_address)
-                #message.set_replyto("seanybob@gmail.com")
                 message.set_subject("Re: "+request.POST['subject'])
                 message.set_html(plaintext)
                 message.set_text(plaintext)
@@ -61,6 +64,21 @@ def catch_email(request):
                 status, msg = sg.send(message)
                 print status
                 print msg
+            else:
+                plaintext = "Hey, I just got an email from you, but don't know who you are! Only my CFO Ted Jones ("+"tedjones@"+os.environ.get('MAILGUN_DOMAIN', '')+") ever emails me at this address, and you emailed me from: "+from_address
+                
+                sg = sendgrid.SendGridClient(os.environ.get('SENDGRID_USERNAME', ''), os.environ.get('SENDGRID_PASSWORD', ''))
+
+                message = sendgrid.Mail()
+                message.add_to(reply_to_address)
+                message.set_subject("Re: "+request.POST['subject'])
+                message.set_html(plaintext)
+                message.set_text(plaintext)
+                message.set_from("Bob Dole <bobdole@"+os.environ.get('MAILGUN_DOMAIN', '')+">")
+                status, msg = sg.send(message)
+                print status
+                print msg
+                
                 
     except:
 
