@@ -66,9 +66,13 @@ def catch_email(request):
                 print msg
                 
         elif to_address == "scotty@"+os.environ.get('MAILGUN_DOMAIN', ''):
+            print "Email to scotty!"
             if from_address == "kylo@"+os.environ.get('MAILGUN_DOMAIN', ''):
+                print "Email to kylo!"
                 for link in BeautifulSoup(request.POST['body-html'][0], parse_only=SoupStrainer('a')):
+                    print "Found link!", str(link)
                     if link.has_attr('href'):
+                        print "Link has href attr:", link['href']
                         print 'phantomjs fake_scotty_browser.js --url '+link['href']
                         os.system('phantomjs fake_scotty_browser.js --url '+link['href'])
                         #launch phantomjs opening link (worker dyno???)
