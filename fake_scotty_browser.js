@@ -28,3 +28,8 @@ loginpage.open(base_url, function (status) {
         });
     }
 });
+
+
+killTimeout = setTimeout(function(){
+    phantom.exit(0);
+}, 5000);
