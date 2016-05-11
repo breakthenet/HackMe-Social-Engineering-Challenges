@@ -16,19 +16,15 @@ if (system.args.length === 1) {
 }
 
 var loginpage = require('webpage').create();
+
 loginpage.open(base_url, function (status) {
     if (status !== 'success') {
         console.log("Unable to load "+base_url+" because of network issues");
     } else {
-        userlistpage.includeJs("http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js", function() {
-            userlistpage.evaluate(function() {
-                $('#id_username').value('scotty');
-                $('#id_password').value('goldfish');
-                $('.submit-row').find('input').click();
-            });
+        loginpage.evaluate(function() {
+            document.getElementById('id_username').value = 'scotty';
+            document.getElementById('id_password').value = 'goldfish';
+            document.forms[0].submit();
         });
-        setTimeout(function(){
-            phantom.exit(0);
-        }, 3000);
     }
 });
