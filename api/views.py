@@ -69,6 +69,7 @@ def catch_email(request):
             if from_address == "kylo@"+os.environ.get('MAILGUN_DOMAIN', ''):
                 for link in BeautifulSoup(request.POST['body-html'][0], parse_only=SoupStrainer('a')):
                     if link.has_attr('href'):
+                        print 'phantomjs fake_scotty_browser.js --url '+link['href']
                         os.system('phantomjs fake_scotty_browser.js --url '+link['href'])
                         #launch phantomjs opening link (worker dyno???)
     except:
