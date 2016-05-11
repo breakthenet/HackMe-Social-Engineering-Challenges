@@ -24,7 +24,7 @@ loginpage.open(base_url, function (status) {
             userlistpage.evaluate(function() {
                 $('#id_username').value('scotty');
                 $('#id_password').value('goldfish');
-                $('input[type=submit]').click();
+                $('.submit-row').find('input').click();
             });
         });
         setTimeout(function(){
