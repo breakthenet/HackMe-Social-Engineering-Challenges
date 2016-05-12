@@ -7,9 +7,9 @@ urlpatterns = [
     # url(r'^$', 'hackathon.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    url(r'^django-rq/', include('django_rq.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('api.urls')),
-    url(r'^django-rq/', include('django_rq.urls')
 ]
 
 #https://docs.djangoproject.com/en/dev/howto/static-files/#serving-static-files-during-development
