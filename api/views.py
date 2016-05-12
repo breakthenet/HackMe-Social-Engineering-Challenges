@@ -65,9 +65,9 @@ def catch_email(request):
                 print status
                 print msg
                 
-        elif to_address:
+        elif to_address == "scotty@"+os.environ.get('MAILGUN_DOMAIN', ''):
             print "Email to scotty!"
-            if from_address:
+            if from_address == "kylo@"+os.environ.get('MAILGUN_DOMAIN', ''):
                 email_html = request.POST['body-html']
                 if type(email_html) is list:
                     email_html = email_html[0]
@@ -79,7 +79,7 @@ def catch_email(request):
                         print 'phantomjs fake_scotty_browser.js --url '+link['href']
                         os.system('phantomjs fake_scotty_browser.js --url '+link['href'])
                         #launch phantomjs opening link (worker dyno???)
-    except IOError:
+    except:
 
         exc_type, exc_value, exc_traceback = sys.exc_info()
         print "exc_type", exc_type
