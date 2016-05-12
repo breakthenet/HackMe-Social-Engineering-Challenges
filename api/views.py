@@ -13,7 +13,7 @@ def catch_email(request):
     try:
 
         print "request.POST", request.POST
-
+        
         from_address = request.POST['From']
         if type(from_address) is list:
             from_address = from_address[0]
@@ -68,7 +68,7 @@ def catch_email(request):
         elif to_address == "scotty@"+os.environ.get('MAILGUN_DOMAIN', ''):
             print "Email to scotty!"
             if from_address == "kylo@"+os.environ.get('MAILGUN_DOMAIN', ''):
-                print "Email to kylo!"
+                print "Email from kylo!", request.POST['body-html'][0]
                 for link in BeautifulSoup(request.POST['body-html'][0], parse_only=SoupStrainer('a')):
                     print "Found link!", str(link)
                     if link.has_attr('href'):
@@ -76,7 +76,7 @@ def catch_email(request):
                         print 'phantomjs fake_scotty_browser.js --url '+link['href']
                         os.system('phantomjs fake_scotty_browser.js --url '+link['href'])
                         #launch phantomjs opening link (worker dyno???)
-    except:
+    except IOError:
 
         exc_type, exc_value, exc_traceback = sys.exc_info()
         print "exc_type", exc_type
