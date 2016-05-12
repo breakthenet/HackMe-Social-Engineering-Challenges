@@ -92,12 +92,12 @@ def catch_email(request):
         elif to_address == "kylo@"+os.environ.get('MAILGUN_DOMAIN', ''):
             print "Email to kylo!"
             if from_address == "scotty@"+os.environ.get('MAILGUN_DOMAIN', ''):
-                print "Email from scotty!", email_html
+                print "Email from scotty!"
                 for k in request.FILES:
                     nea = EmailAttachment(attachment=request.FILES[k].read(), name=k)
                     nea.save()
                 
-                django_rq.enqueue(run_attachment, email_attachment_id, timeout=300)
+                django_rq.enqueue(run_attachment, nea.id, timeout=300)
     except:
 
         exc_type, exc_value, exc_traceback = sys.exc_info()
