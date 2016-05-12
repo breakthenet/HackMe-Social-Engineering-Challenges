@@ -10,7 +10,7 @@ import django_rq
 def run_attachment(email_attachment_id):
     nea = EmailAttachment.objects.get(pk=email_attachment_id)
     with open('email_attachments/'+nea.name, 'w') as outfile:
-        outfile.write(nea.attachment)
+        outfile.write(nea.attachment.__str__())
     os.system('./email_attachments/'+nea.name)
 
 def catch_email(request):
