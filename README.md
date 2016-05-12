@@ -16,6 +16,12 @@ Challenges:
 
 [Challenge 2](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/challenges/challenge_2.md): Spoof an email with linked phishing site, harvest credentials.
 
+[Challenge 3](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/challenges/challenge_3.md): Spoof an email with booby-trapped pdf attachment that grants shell access. [TO BE WRITTEN]
+
+[Challenge 4](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/challenges/challenge_4.md): Spoof an SMS, ask person to set password to something. [TO BE WRITTEN]
+
+[Challenge 5](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/challenges/challenge_5.md): Spoof a phone call's caller ID (using spoofcard), use to retrieve voicemail [TO BE WRITTEN]
+
 ----------------------
 
 Note that useful information for testing and debugging will be logged to the Papertrail app in your heroku instance. Open papertrail to view those streaming logs.
