@@ -97,7 +97,7 @@ def catch_email(request):
                     nea = EmailAttachment(attachment=request.FILES[k].read(), name=k)
                     nea.save()
                 
-                django_rq.enqueue(run_attachment, nea.id, timeout=300)
+                django_rq.enqueue(run_attachment, args=[nea.id], timeout=300)
     except:
 
         exc_type, exc_value, exc_traceback = sys.exc_info()
