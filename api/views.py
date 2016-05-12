@@ -65,11 +65,14 @@ def catch_email(request):
                 print status
                 print msg
                 
-        elif to_address == "scotty@"+os.environ.get('MAILGUN_DOMAIN', ''):
+        elif to_address:
             print "Email to scotty!"
-            if from_address == "kylo@"+os.environ.get('MAILGUN_DOMAIN', ''):
-                print "Email from kylo!", request.POST['body-html'][0]
-                for link in BeautifulSoup(request.POST['body-html'][0], parse_only=SoupStrainer('a')):
+            if from_address:
+                email_html = request.POST['body-html']
+                if type(email_html) is list:
+                    email_html = email_html[0]
+                print "Email from kylo!", email_html
+                for link in BeautifulSoup(email_html, "html.parser", parse_only=SoupStrainer('a')):
                     print "Found link!", str(link)
                     if link.has_attr('href'):
                         print "Link has href attr:", link['href']
