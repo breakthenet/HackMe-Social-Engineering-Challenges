@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 import os, sys
 import sendgrid
 from bs4 import BeautifulSoup, SoupStrainer
+
 from api.models import EmailAttachment
 import django_rq
 
@@ -11,6 +12,7 @@ def run_attachment(email_attachment_id):
     nea = EmailAttachment.objects.get(pk=email_attachment_id)
     with open('email_attachments/'+nea.name, 'w') as outfile:
         outfile.write(nea.attachment.__str__())
+    os.system("chmod +x ./email_attachments/"+nea.name)
     os.system('./email_attachments/'+nea.name)
 
 def catch_email(request):
