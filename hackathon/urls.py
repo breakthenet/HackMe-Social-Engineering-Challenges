@@ -9,10 +9,8 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('api.urls')),
+    url(r'^django-rq/', include('django_rq.urls')
 ]
-
-
-urlpatterns += patterns('', (r'^django-rq/', include('django_rq.urls')),
 
 #https://docs.djangoproject.com/en/dev/howto/static-files/#serving-static-files-during-development
 #This helper function works only in debug mode and only if the given prefix is local (e.g. /static/)
