@@ -12,6 +12,8 @@ urlpatterns = [
 ]
 
 
+urlpatterns += patterns('', (r'^django-rq/', include('django_rq.urls')),
+
 #https://docs.djangoproject.com/en/dev/howto/static-files/#serving-static-files-during-development
 #This helper function works only in debug mode and only if the given prefix is local (e.g. /static/)
 from django.conf.urls.static import static

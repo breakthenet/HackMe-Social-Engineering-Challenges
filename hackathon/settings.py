@@ -101,3 +101,12 @@ if os.environ.get('IS_HEROKU_SERVER', False): # $ heroku config:add IS_HEROKU_SE
     }
     STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
     STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+    
+    INSTALLED_APPS += ("django_rq",)
+    RQ_QUEUES = {
+        'default': {
+            'URL': os.getenv('REDISTOGO_URL', 'redis://localhost:5882'), # If you're on Heroku
+            'DB': 0,
+        }
+    }
+    RQ_SHOW_ADMIN_LINK = True

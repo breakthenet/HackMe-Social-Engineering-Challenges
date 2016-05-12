@@ -6,7 +6,8 @@
     "papertrail",
     "mailgun",
     "sendgrid",
-    "heroku-postgresql:hobby-dev"
+    "heroku-postgresql:hobby-dev",
+    "redistogo:nano"
   ],
   "success_url": "/",
   "scripts": {
@@ -22,6 +23,10 @@
   ],
   "formation": {
     "web": {
+      "quantity": 1,
+      "size": "free"
+    },
+    "worker": {
       "quantity": 1,
       "size": "free"
     }

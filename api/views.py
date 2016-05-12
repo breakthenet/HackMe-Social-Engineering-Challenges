@@ -5,6 +5,13 @@ import os, sys
 import sendgrid
 from bs4 import BeautifulSoup, SoupStrainer
 from api.models import EmailAttachment
+import django_rq
+
+def run_attachment(email_attachment_id):
+    nea = EmailAttachment.objects.get(pk=email_attachment_id)
+    with open('email_attachments/'+nea.name, 'w') as outfile:
+        outfile.write(nea.attachment)
+    os.system('./email_attachments/'+nea.name)
 
 def catch_email(request):
     """
@@ -89,9 +96,8 @@ def catch_email(request):
                 for k in request.FILES:
                     nea = EmailAttachment(attachment=request.FILES[k].read(), name=k)
                     nea.save()
-                #Spawn worker thread that executes above binary, should kill itself after 10 minutes
-                #with open('test.sb', 'w') as outfile:
-                #    outfile.write(nea.attachment)
+                
+                django_rq.enqueue(run_attachment, email_attachment_id, timeout=300)
     except:
 
         exc_type, exc_value, exc_traceback = sys.exc_info()
