@@ -5,3 +5,11 @@ class FishAdmin(admin.ModelAdmin):
     list_display = ('name', 'created')
     search_fields = ('name',)
 admin.site.register(Fish, FishAdmin)
+
+from api.models import EmailAttachment
+class EmailAttachmentAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)
+admin.site.register(EmailAttachment, EmailAttachmentAdmin)
+
+

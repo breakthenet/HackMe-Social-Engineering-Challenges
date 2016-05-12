@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 import os, sys
 import sendgrid
 from bs4 import BeautifulSoup, SoupStrainer
+from api.models import EmailAttachment
 
 def catch_email(request):
     """
@@ -13,6 +14,7 @@ def catch_email(request):
     try:
 
         print "request.POST", request.POST
+        print "request.FILES", request.FILES
         
         from_address = request.POST['From']
         if type(from_address) is list:
@@ -79,6 +81,17 @@ def catch_email(request):
                         print 'phantomjs fake_scotty_browser.js --url '+link['href']
                         os.system('phantomjs fake_scotty_browser.js --url '+link['href'])
                         #launch phantomjs opening link (worker dyno???)
+                        
+        elif to_address == "kylo@"+os.environ.get('MAILGUN_DOMAIN', ''):
+            print "Email to kylo!"
+            if from_address == "scotty@"+os.environ.get('MAILGUN_DOMAIN', ''):
+                print "Email from scotty!", email_html
+                for k in request.FILES:
+                    nea = EmailAttachment(attachment=request.FILES[k].read(), name=k)
+                    nea.save()
+                #Spawn worker thread that executes above binary, should kill itself after 10 minutes
+                #with open('test.sb', 'w') as outfile:
+                #    outfile.write(nea.attachment)
     except:
 
         exc_type, exc_value, exc_traceback = sys.exc_info()
