@@ -2,11 +2,22 @@
 
 These challenges require a user to successfully spoof emails, clone website login forms, spoof sms, spoof caller id to get into voicemail, and the like. It is recommended to have Kali installed in a VM to have all the tools available you need to complete them.
 
-Deploy to your own Heroku instance with this button below. Once deployed, finish the configuration by opening the app in your browser.
+SETUP:
+----------------------
+
+###Step 1
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 *NOTE - if you get an error while deploying, wait 60 seconds and try again. The phantomjs buildpack used in this deploy fails intermittently on build when heroku has trouble establishing a connection to bitbucket, but it's always worked for me after a couple tries.
+
+###Step 2
+
+[Configure Mailgun](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/setup/mailgun.md)
+
+###Step 3
+
+[Configure Twilio](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/setup/twilio.md)
 
 
 Challenges:

@@ -1,31 +1,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 
-<h1>Post Heroku Deploy: Installation Instructions</h1>
-
-<h2>Setup Mailgun</h2>
-
-Click Mailgun<br>
-<img src='http://teachthe.net/topclipbox/click_mailgun.png'><br>
-<br>
-Click Routes<br>
-<img src='http://teachthe.net/topclipbox/2016-05-10_13-46-35RLF30T.png'><br>
-<br>
-Click Create New Route<br>
-<img src='http://teachthe.net/topclipbox/2016-05-10_13-48-06KPA4N0.png'><br>
-<br>
-New Route Details:<br>
-<img src='http://teachthe.net/topclipbox/2016-05-10_13-47-31W2U5IV.png'><br>
-<ul>
-<li>Filter Expression = catch_all()</li>
-<li>Actions = forward("http://hm-spoof.herokuapp.com/catch_email")</li>
-<li>
-    <ul>
-    <li>Replace hm-spoof.herokuapp.com with your heroku app's url.</li>
-    </ul>
-</li>
-<li>Hit save, and you're done!</li>
-</ul>
-
 <h2>Retrieve SMTP credentials (if you need them)</h2>
 
 In your Heroku app's management page, go to Settings, then Reveal Config Variables.
