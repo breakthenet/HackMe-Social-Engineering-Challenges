@@ -27,7 +27,7 @@ Challenges:
 
 [Challenge 2](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/challenges/challenge_2.md): Spoof an email with linked phishing site, harvest credentials.
 
-[Challenge 3](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/challenges/challenge_3.md): Spoof an email with booby-trapped pdf attachment that grants shell access. [TO BE WRITTEN]
+[Challenge 3](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/challenges/challenge_3.md): Spoof an email with booby-trapped attachment that opens a reverse shell session. 
 
 [Challenge 4](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/challenges/challenge_4.md): Spoof an SMS, ask person to set password to something. [TO BE WRITTEN]
 
