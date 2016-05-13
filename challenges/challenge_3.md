@@ -8,7 +8,8 @@ Your goal is to send an email TO Kylo Solo, FROM his boss Scotty, with an evil a
 
 Your attachment should be booby-trapped; it should grant you access to his machine using a reverse shell, or some such thing.
 
-- Frank Johnson
+Happy hacking,
+Frank Johnson
 Chief Security Officer, Veritas Inc.
 
 NOTE - Kylo is super eager to please his boss. He will immediately open and run all attachments you send him. In this case, he doesn't have java/flash/a pdf reader installed, so you should probably send him a binary. Note that he's running a linux x64 machine.
