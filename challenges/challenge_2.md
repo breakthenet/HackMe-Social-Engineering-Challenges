@@ -10,8 +10,7 @@ I'd like you to send a spoofed email to our IT Director, Scotty LaForge. Try sen
 
 Only that link should instead go to a phishing site you setup to harvest his credentials. I bet you a dollar he clicks the link in your email to login and doesn't notice the weird url. Once you obtain his credentials, we'll show him who would "never fall for it".
 
-- Frank Johnson
-Chief Security Officer, Veritas Inc.
+Frank Johnson (Chief Security Officer, Veritas Inc.)
 
 NOTE - Scotty LaForge is notorious for clicking links in emails. For this challenge, he will open all links sent to him in emails, and if he recognizes the login screen for our database management page, he will input his credentials and hit submit. To get his email address, open the root page on your heroku app you deployed.
 
