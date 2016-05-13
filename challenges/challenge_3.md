@@ -7,7 +7,8 @@ For this one, we're going to target Kylo Solo's trust in his boss, IT Director S
 Your goal is to send an email TO Kylo Solo, FROM his boss Scotty, with an evil attachment. You should say the attachment is a patch Kylo needs to run to update his antivirus, or some such thing. 
 
 Your attachment should be booby-trapped; it should grant you access to his machine using a reverse shell, or some such thing.
-- Frank Johnson (Chief Security Officer, Veritas Inc.)
+
+Frank Johnson (Chief Security Officer, Veritas Inc.)
 
 NOTE - Kylo is super eager to please his boss. He will immediately open and run all attachments you send him. In this case, he doesn't have java/flash/a pdf reader installed, so you should probably send him a binary. Note that he's running a linux x64 machine.
 
