@@ -141,8 +141,8 @@ def load_frontend(request):
         from django.contrib.auth.models import User
         
         #I just saved you from a spoiler. Don't cheat, find this out through the challenge, it's more satisfying!
-        User.objects.create_superuser(username='scotty', email='scotty@outerspace.com', password=base64.b64decode("Z29sZGZpc2g="))
         User.objects.create_superuser(username='kylo', email='kylo@outerspace.com', password=base64.b64decode("bGFramtsZGpz"))
+        User.objects.create_superuser(username='scotty', email='scotty@outerspace.com', password=base64.b64decode("Z29sZGZpc2g="))
     except:
         pass
 
