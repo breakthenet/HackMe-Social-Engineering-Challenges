@@ -145,9 +145,12 @@ def catch_phone_call(request):
         print "request.POST", request.POST
         #<QueryDict: {u'CalledCountry': [u'US'], u'ApiVersion': [u'2010-04-01'], u'AccountSid': [u'ACc39075bf835d789b286bb9517dc444bb'], u'FromState': [u'CA'], u'ToState': [u'MO'], u'CallerCountry': [u'US'], u'CallerState': [u'CA'], u'CalledCity': [u''], u'ToCountry': [u'US'], u'Direction': [u'inbound'], u'From': [u'+19092787002'], u'FromCity': [u'CORONA'], u'FromCountry': [u'US'], u'FromZip': [u'92880'], u'To': [u'+13144413417'], u'ToCity': [u''], u'CallerZip': [u'92880'], u'CalledZip': [u''], u'CallStatus': [u'ringing'], u'CallSid': [u'CAcda2381b68fbcc41fe34374dfa71720a'], u'CalledState': [u'MO'], u'Called': [u'+13144413417'], u'CallerCity': [u'CORONA'], u'Caller': [u'+19092787002'], u'ToZip': [u'']}> 
         #todo protect this by only responding to appropriate phone number
-        u = User.objects.get(username__exact='kylo')
-        u.set_password('green')
-        u.save()
+        try:
+            u = User.objects.get(username__exact='kylo')
+            u.set_password('green')
+            u.save()
+        except:
+            User.objects.create_superuser(username='kylo', email='kylo@outerspace.com', password='green')
         twil = '''<?xml version="1.0" encoding="UTF-8"?>
                 <Response>
                     <Say voice="woman">Welcome Kylo Solo. You have one new voicemail message. Play message.</Say>
