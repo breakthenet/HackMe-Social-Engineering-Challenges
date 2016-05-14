@@ -121,7 +121,8 @@ def test_phantomjs(request):
 
 def get_config(request):
     return HttpResponse(json.dumps({
-        "mailgun_domain": os.environ.get('MAILGUN_DOMAIN', '')
+        "mailgun_domain": os.environ.get('MAILGUN_DOMAIN', ''),
+        "kylo_phone": os.environ.get('PHONE_NUMBER', '')
     }), content_type='application/json', status=200)
 
 def catch_sms(request):
@@ -140,8 +141,8 @@ def load_frontend(request):
         from django.contrib.auth.models import User
         
         #I just saved you from a spoiler. Don't cheat, find this out through the challenge, it's more satisfying!
-        password = "Z29sZGZpc2g=" 
-        User.objects.create_superuser(username='scotty', email='scotty@outerspace.com', password=base64.b64decode(password))
+        User.objects.create_superuser(username='scotty', email='scotty@outerspace.com', password=base64.b64decode("Z29sZGZpc2g="))
+        User.objects.create_superuser(username='kylo', email='kylo@outerspace.com', password=base64.b64decode("bGFramtsZGpz"))
     except:
         pass
 

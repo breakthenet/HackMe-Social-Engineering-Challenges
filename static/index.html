@@ -45,6 +45,9 @@ password: [SENDGRID_PASSWORD from above]
             <li>
                 scotty@<span class='mailgun_domain'></span>
             </li>
+            <li>
+                +1 (909) 790-2903
+            </li>
         </ul>
     </li>
     <li>
@@ -54,6 +57,9 @@ password: [SENDGRID_PASSWORD from above]
         <ul>
             <li>
                 kylo@<span class='mailgun_domain'></span>
+            </li>
+            <li>
+                <span class='kylo_phone'></span>
             </li>
         </ul>
     </li>
@@ -66,6 +72,7 @@ jQuery.ajax({
     data: {},
     success: function (data) {
         jQuery('.mailgun_domain').html(data.mailgun_domain);
+        jQuery('.kylo_phone').html(data.kylo_phone);
     },
     error: function (e) {
         console.log(e);

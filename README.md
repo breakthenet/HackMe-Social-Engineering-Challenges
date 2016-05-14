@@ -17,7 +17,9 @@ SETUP:
 
 ###Step 3
 
-[Configure Twilio](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/setup/twilio.md)
+- Only required for optional Challenges 4 and 5
+- Requires an account on a paid service, Twilio to setup. Also requires people to use paid accounts to solve.
+- [Configure Twilio](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/setup/twilio.md)
 
 
 Challenges:
@@ -29,9 +31,9 @@ Challenges:
 
 [Challenge 3](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/challenges/challenge_3.md): Spoof an email with booby-trapped attachment that opens a reverse shell session. 
 
-[Challenge 4](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/challenges/challenge_4.md): Spoof an SMS, ask person to set password to something. [TO BE WRITTEN]
+[Optional: Challenge 4](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/challenges/challenge_4.md): Spoof an SMS (using a paid service), asking person to change a password on something as their boss. 
 
-[Challenge 5](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/challenges/challenge_5.md): Spoof a phone call's caller ID (using spoofcard), use to retrieve voicemail [TO BE WRITTEN]
+[Optional: Challenge 5](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/challenges/challenge_5.md): Spoof a phone call's caller ID (using spoofcard.com), use to retrieve voicemail [TO BE WRITTEN]
 
 ----------------------
 
