@@ -33,7 +33,7 @@ Challenges:
 
 [Optional: Challenge 4](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/challenges/challenge_4.md): Spoof an SMS (using a paid service), asking person to change a password on something as their boss. 
 
-[Optional: Challenge 5](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/challenges/challenge_5.md): Spoof a phone call's caller ID (using spoofcard.com), use to retrieve voicemail [TO BE WRITTEN]
+[Optional: Challenge 5](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/challenges/challenge_5.md): Spoof a phone call's caller ID (using a paid service), use to retrieve voicemail.
 
 ----------------------
 
