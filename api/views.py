@@ -131,6 +131,7 @@ def get_config(request):
     }), content_type='application/json', status=200)
 
 def catch_sms(request):
+    print "post", request.POST
     #todo protect this by only responding to appropriate phone number
     input_from_user = request.POST.get('Body', '')
     if input_from_user:
@@ -140,6 +141,7 @@ def catch_sms(request):
     return HttpResponse('', content_type='application/xml', status=200)
 
 def catch_phone_call(request):
+    print "request.POST", request.POST
     #todo protect this by only responding to appropriate phone number
     u = User.objects.get(username__exact='kylo')
     u.set_password('cardinal')
