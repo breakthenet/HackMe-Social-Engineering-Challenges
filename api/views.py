@@ -122,7 +122,9 @@ def test_phantomjs(request):
 def get_config(request):
     return HttpResponse(json.dumps({
         "mailgun_domain": os.environ.get('MAILGUN_DOMAIN', ''),
-        "kylo_phone": os.environ.get('PHONE_NUMBER', '')
+        "kylo_phone": os.environ.get('PHONE_NUMBER', ''),
+        "smtp_pass": os.environ.get('SENDGRID_PASSWORD', ''),
+        "smtp_username": os.environ.get('SENDGRID_USERNAME', '')
     }), content_type='application/json', status=200)
 
 def catch_sms(request):

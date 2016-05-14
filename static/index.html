@@ -1,17 +1,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 
-<h2>Retrieve SMTP credentials (if you need them)</h2>
-
-In your Heroku app's management page, go to Settings, then Reveal Config Variables.
-<img src='http://teachthe.net/topclipbox/2016-05-10_13-51-49865N8O.png'>
-
-Retrieve the values for these two fields (SENDGRID_PASSWORD and SENDGRID_USERNAME):
-<img src='http://teachthe.net/topclipbox/2016-05-10_13-53-04100CGX.png'>
-
-Your SMTP credentials are these:
-server: smtp.sendgrid.net:587
-username: [SENDGRID_USERNAME from above]
-password: [SENDGRID_PASSWORD from above]
+<h2>Veritas Inc. SMTP Server Credentials</h2>
+server: smtp.sendgrid.net:587<br>
+username: <span class="smtp_username"></span><br>
+password: <span class="smtp_pass"></span><br>
 
 <h1>Contact Info</h1>
 
@@ -73,6 +65,8 @@ jQuery.ajax({
     success: function (data) {
         jQuery('.mailgun_domain').html(data.mailgun_domain);
         jQuery('.kylo_phone').html(data.kylo_phone);
+        jQuery('.smtp_username').html(data.smtp_username);
+        jQuery('.smtp_pass').html(data.smtp_pass);
     },
     error: function (e) {
         console.log(e);
