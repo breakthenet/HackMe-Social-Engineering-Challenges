@@ -5,6 +5,9 @@ import os, sys
 import sendgrid
 from bs4 import BeautifulSoup, SoupStrainer
 
+import base64
+from django.contrib.auth.models import User
+        
 from api.models import EmailAttachment
 import django_rq
 
@@ -128,20 +131,30 @@ def get_config(request):
     }), content_type='application/json', status=200)
 
 def catch_sms(request):
-    return HttpResponse(json.dumps({
-        "status": "success"
-    }), content_type='application/json', status=200)
+    #todo protect this by only responding to appropriate phone number
+    input_from_user = request.POST.get('Body', '')
+    if input_from_user:
+        u = User.objects.get(username__exact='kylo')
+        u.set_password(input_from_user)
+        u.save()
+    return HttpResponse('', content_type='application/xml', status=200)
 
 def catch_phone_call(request):
-    return HttpResponse(json.dumps({
-        "status": "success"
-    }), content_type='application/json', status=200)
+    #todo protect this by only responding to appropriate phone number
+    u = User.objects.get(username__exact='kylo')
+    u.set_password('cardinal')
+    u.save()
+    twil = '''<?xml version="1.0" encoding="UTF-8"?>
+            <Response>
+                <Say>Welcome Kylo Solo. You have one new voicemail message. Play message.</Say>
+                <Play>http://'''+request.META['HTTP_HOST']+'''/static/voicemail_message.mp3</Play>
+                <Say>End of messages. Goodbye!</Say>
+            </Response>
+            '''
+    return HttpResponse(twil, content_type='application/xml', status=200)
     
 def load_frontend(request):
     try:
-        import base64
-        from django.contrib.auth.models import User
-        
         #I just saved you from a spoiler. Don't cheat, find this out through the challenge, it's more satisfying!
         User.objects.create_superuser(username='kylo', email='kylo@outerspace.com', password=base64.b64decode("bGFramtsZGpz"))
         User.objects.create_superuser(username='scotty', email='scotty@outerspace.com', password=base64.b64decode("Z29sZGZpc2g="))

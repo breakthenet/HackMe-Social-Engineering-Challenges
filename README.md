@@ -15,10 +15,11 @@ SETUP:
 
 [Configure Mailgun](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/setup/mailgun.md)
 
-###Step 3
+###Step 3 (Optional, involves Paid Services)
 
 - Only required for optional Challenges 4 and 5
-- Requires an account on a paid service, Twilio to setup. Also requires people to use paid accounts to solve.
+- Requires an account on a paid service, Twilio to setup.
+- Also requires people to use paid accounts to solve with sms/voice spoofing providers.
 - [Configure Twilio](https://github.com/breakthenet/HackMe-Social-Engineering-Challenges/blob/master/setup/twilio.md)
 
 
