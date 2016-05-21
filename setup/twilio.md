@@ -1,8 +1,8 @@
-# Setup Mailgun
+# Setup Twilio
 
 ----------------------
 
-In this walkthrough, we will setup mailgun to receive emails and forward them to our api call for processing.
+In this walkthrough, we will setup twilio to receive sms and phone calls and forward them to our api call for processing.
 
 ----------------------
 
